@@ -1,0 +1,72 @@
+<!--表格内容-->
+<div class="contentCenter">
+    <!--表格添加样式-->
+    <div class="addContent">
+        <div class="list-addT">
+            <ul>
+                <li>
+                    <span>分类:</span>
+                    <select ng-change="myFunc()" ng-model="notice.classify">
+                        <option value="" disabled>请选择</option>
+                        <option ng-repeat="(key,value) in allClass track by key">{{ value }}</option>
+                    </select>
+                </li>
+                <li>
+                    <span>标题:</span>
+                    <input type="text" ng-model="notice.title">
+                </li>
+                <li>
+                    <span>作者:</span>
+                    <input type="text" ng-model="notice.author">
+                </li>
+                <li>
+                    <span>是否必读:</span>
+                    <select ng-change="myFunc()" ng-model="notice.required">
+                        <option value="" disabled>请选择</option>
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <span>是否发送邮件:</span>
+                    <select ng-change="myFunc()" ng-model="notice.send">
+                        <option value="" disabled>请选择</option>
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <span>发送公邮:</span>
+                    <div class="select" style="width:312px">
+                        <p class="select-text">
+                            <span ng-repeat="work in condis">{{work.email}}, </span>
+                        </p>
+                        <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="allMails" selected-model="condis" extra-settings="stringSettings"></div>
+                    </div>
+                </li>
+                <li>
+                    <span>是否全部发送:</span>
+                    <select ng-change="myFunc()" ng-model="notice.all">
+                        <option value="" disabled>请选择</option>
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li>
+                    <span>发布对象:</span>
+                    <div class="select" style="width:312px">
+                        <p class="select-text">
+                            <span ng-repeat="work in users">{{work}}, </span>
+                        </p>
+                        <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="allUser" selected-model="users" extra-settings="stringSetting"></div>
+                    </div>
+                </li>
+            </ul>
+            <div ueditor id="Container"  config="{{config}}" ng-click="Eclick()"></div>
+            <!-- <div>
+                <script id="editor"  config="{{config}}" ng-click="Eclick()" type="text/plain" style="width:100%;height:480px;"></script>
+            </div> -->
+            <button ng-click="addFun()" class="add-button">确定</button>
+        </div>
+    </div>
+</div>

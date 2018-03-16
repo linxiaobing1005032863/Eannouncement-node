@@ -1,0 +1,130 @@
+<div class="contentCenter">
+    <div class="search-big" style="display :{{ isView?'none':'block'}}">
+        <select class="salc" ng-model="checkedName"  ng-init="checkedName='编号'">
+            <option ng-repeat="item in titles">{{item}}</option>
+        </select>
+        <select class="sle" ng-model="numbers" ng-show="checkedName=='编号'">
+            <option value="">请选择编号</option>
+            <option ng-repeat="(key,value) in allNumbers track by key">{{value}}</option>
+        </select>
+        <select class="sle" ng-model="classifys" ng-show="checkedName=='分类'">
+            <option value="">请选择分类</option>
+            <option ng-repeat="(key,value) in allClass track by key">{{value}}</option>
+        </select>
+        <select class="sle" ng-model="authors" ng-show="checkedName=='作者'">
+            <option value="">请选择作者</option>
+            <option ng-repeat="(key,value) in allAuthors track by key">{{value}}</option>
+        </select>
+        <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image publishDate" ng-show="checkedName=='发布日期'" ng-model="publishDate">
+        <a href="javascript:void(0)" ng-click="search()"><img src="/images/search2.png"></a>
+    </div>
+    <!--列表-->
+    <div class="list">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" style="width: 45px;">
+                        <span>公告</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" style="width: 76px;">
+                        <span>公告管理</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" style="width: 45px;">
+                        <span>公告</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>列表</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="list-top">
+            <section class="flex1">
+                <input type="checkbox" checked="checked" class="checked-none" data-style="checked">
+                <label class="tick"></label>
+            </section>
+            <section class="flex8">编号</section>
+            <section class="flex8">分类</section>
+            <section class="flex8">标题</section>
+            <section class="flex8">作者</section>
+            <section class="flex8">发布日期</section>
+            <section class="flex8">发布对象</section>
+            <section class="flex8">状态</section>
+            <section class="flex8"></section>
+        </div>
+        <ul class="list-cenOul">
+            <li class="{{list.status1 == 'CONGEAL'?'shut list-style':'list-style'}} {{list._selectList?'haveR':''}}" ng-click="selectList(list)" ng-repeat="list in InfoAreaLists track by $index">
+                <section class="flex1 {{list._selectList?'haveR':''}}" >
+                    <input type="checkbox" checked="checked" class="checked-none" data-style="checked">
+                    <label class="tick"></label>
+                </section>
+                <section class="flex8">{{list.number}}</section>
+                <section class="flex8">{{list.classify}}</section>
+                <section class="flex8">{{list.title}}</section>
+                <section class="flex8">{{list.author}}</section>
+                <section class="flex8">{{list.publishDate}}</section>
+                <section class="flex8">{{list.recipient}}</section>
+                <section class="flex8">{{list.status | notice}}</section>
+                <section class="flex8">
+                    <button ng-click="thaw(lists)">解冻</button>
+                </section>
+            </li>
+        </ul>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+    </div>
+    <!--删除-->
+    <div id="delete"  ng-show="delShow">
+        <div class="del-head">
+            <span ng-click="cancel()">
+                <img src="/images/del.png">
+            </span>
+            <h3>温馨提示</h3>
+            <p>您确定要删除此数据吗？</p>
+        </div>
+        <div class="del-btn">
+            <button ng-click="cancel()">取消</button>
+            <button ng-click="delFn()">确定</button>
+        </div>
+    </div>
+    <div id="delete1"  ng-show="congeal">
+        <div class="del-head">
+            <span ng-click="shop()">
+                <img src="/images/del.png">
+            </span>
+            <h3>温馨提示</h3>
+            <p>您确定要关闭此数据吗？</p>
+        </div>
+        <div class="del-btn">
+            <button ng-click="shop()">取消</button>
+            <button ng-click="closeFn()">确定</button>
+        </div>
+    </div>
+    <div id="maskBg" ng-show="delShow||congeal"></div>
+</div>

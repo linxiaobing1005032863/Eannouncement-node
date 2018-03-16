@@ -1,0 +1,20 @@
+<!--内容表头导航-->
+<div class="contentTitle">
+    <ul>
+        <li ng-class="{'liSty':menuClass=='listMenu'}" ui-sref=".list[12]" ng-click="list('listMenu')">
+            <a href="javascript:void (0)">列表</a>
+        </li>
+        <li ng-class="{'liSty':menuClass=='addMenu'}" ui-sref=".add[12]" ng-click="add('addMenu')">
+            <a href="javascript:void (0)">添加</a>
+        </li>
+        <li ng-class="{'liSty':menuClass=='editMenu'}"  ng-click="edit('editMenu')">
+            <a href="javascript:void (0)">编辑</a>
+        </li>
+        <li ng-class="{'liSty':menuClass=='deleteMenu'}" ng-click="delete('deleteMenu')">
+            <a href="javascript:void (0)">删除</a>
+        </li>
+        <li ng-class="{'liSty':menuClass=='congealMenu'}"  ng-click="congeal('congealMenu')">
+            <a href="javascript:void (0)">冻结</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,131 @@
+<div class="contentCenter">
+    <!--列表-->
+    <div class="list">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>组织结构</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>组织结构管理</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>部门设置</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>列表</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="list-top">
+            <section class="flex1">
+                <input type="checkbox" checked="checked" class="checked-none" data-style="checked">
+                <label class="tick"></label>
+            </section>
+            <section class="flex4">业务方向分类</section>
+            <section class="flex10">业务方向-科目</section>
+            <section class="flex8">专业分类</section>
+            <section class="flex8">工作范围</section>
+            <section class="flex8">工作界面(节点)</section>
+        </div>
+        <ul class="list-cenOul">
+            <li class="{{list.status1 == 'CONGEAL'?'shut list-style':'list-style'}} {{list._selectList?'haveR':''}}" ng-click="selectList(list)" ng-repeat="list in InfoAreaLists track by $index">
+                <section class="flex1 {{list._selectList?'haveR':''}}" >
+                    <input type="checkbox" checked="checked" class="checked-none" data-style="checked">
+                    <label class="tick"></label>
+                </section>
+                <section class="flex4">{{list.id}}</section>
+                <section class="flex34">
+                    <ol class="list-big">
+                        <li ng-repeat="list1 in list.projectFlatBOs track by $index">
+                            <section>{{list1.project}}</section>
+                            <ul>
+                                <li ng-repeat="list2 in list1.classifyFlatBOs track by $index">
+                                    <section>{{list2.classify}}</section>
+                                    <ol>
+                                        <li>
+                                            <ul ng-repeat="list3 in list2.workRangeListBOs track by $index">
+                                                <li ng-repeat="list4 in list3.workRanges track by $index">{{list4}}</li>
+                                            </ul>
+                                            <ul ng-repeat="list3 in list2.workRangeListBOs track by $index">
+                                                <li ng-repeat="list5 in list3.node track by $index">{{list5}}</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+            </li>
+        </ul>
+    </div>
+    <!--删除-->
+    <div id="delete"  ng-show="delShow">
+        <div class="del-head">
+            <span ng-click="cancel()">
+                <img src="/images/del.png">
+            </span>
+            <h3>温馨提示</h3>
+            <p>您确定要删除此数据吗？</p>
+        </div>
+        <div class="del-btn">
+            <button ng-click="cancel()">取消</button>
+            <button ng-click="delFn()">确定</button>
+        </div>
+    </div>
+    <div id="delete1"  ng-show="conShow">
+        <div class="del-head">
+            <span ng-click="shop()">
+                <img src="/images/del.png">
+            </span>
+            <h3>温馨提示</h3>
+            <p>您确定要关闭此数据吗？</p>
+        </div>
+        <div class="del-btn">
+            <button ng-click="shop()">取消</button>
+            <button ng-click="closeFn()">确定</button>
+        </div>
+    </div>
+    <div id="delete2"  ng-show="retShow">
+        <div class="del-head">
+            <span ng-click="conCancel()">
+                <img src="/images/del.png">
+            </span>
+            <h3>温馨提示</h3>
+            <p>您确定要重启此数据吗？</p>
+        </div>
+        <div class="del-btn">
+            <button ng-click="conCancel()">取消</button>
+            <button ng-click="resetFn()">确定</button>
+        </div>
+    </div>
+    <div id="maskBg" ng-show="delShow||conShow||retShow"></div>
+</div>

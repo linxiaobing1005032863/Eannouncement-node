@@ -1,0 +1,188 @@
+<!--导航部分-->
+<nav class="nav">
+    <!--左边导航-->
+    <div class="secOne">
+        <ul class="secOul"  resize ng-style="style()">
+            <li ng-class="{'selected':menuClass=='homeMenu'}" ng-click="home('系统首页')">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="home">
+                        <use xlink:href="#home"></use>
+                    </svg>
+                    <span>系统首页</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='noticeMenu'}" ng-click="notice()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="notice">
+                        <use xlink:href="#notice"></use>
+                    </svg>
+                    <span>公告通知</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='knowMenu'}" ng-click="know()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="know">
+                        <use xlink:href="#know"></use>
+                    </svg>
+                    <span>知己知彼</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='archivesMenu'}" ng-click="archives()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="archives">
+                        <use xlink:href="#archives"></use>
+                    </svg>
+                    <span>档案库</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='suddenMenu'}" ng-click="sudden()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="sudden">
+                        <use xlink:href="#sudden"></use>
+                    </svg>
+                    <span>异军突起</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='bonusMenu'}" ng-click="bonus()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="bonus">
+                        <use xlink:href="#bonus"></use>
+                    </svg>
+                    <span>提成分红</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='commendableMenu'}" ng-click="commendable()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="commendable">
+                        <use xlink:href="#commendable"></use>
+                    </svg>
+                    <span>嘉奖有为</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='ambitionMenu'}" ng-click="ambition()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="ambition">
+                        <use xlink:href="#ambition"></use>
+                    </svg>
+                    <span>理想抱负</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='contractMenu'}" ng-click="contract()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="contract">
+                        <use xlink:href="#contract"></use>
+                    </svg>
+                    <span>合同管理</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='businessMenu'}" ng-click="business()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="business">
+                        <use xlink:href="#business"></use>
+                    </svg>
+                    <span>商务管理</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='budgetMenu'}" ng-click="budget()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="budget">
+                        <use xlink:href="#budget"></use>
+                    </svg>
+                    <span>预算模块</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='fundMenu'}" ng-click="fund()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="fund">
+                        <use xlink:href="#fund"></use>
+                    </svg>
+                    <span>资金模块</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='accountingMenu'}" ng-click="accounting()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="accounting">
+                        <use xlink:href="#accounting"></use>
+                    </svg>
+                    <span>财务模块</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='followMenu'}" ng-click="follow()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="follow">
+                        <use xlink:href="#follow"></use>
+                    </svg>
+                    <span>追踪查询</span>
+                </a>
+            </li>
+            <li ng-class="{'selected':menuClass=='centripetalMenu'}" ng-click="centripetal()">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="centripetal">
+                        <use xlink:href="#centripetal"></use>
+                    </svg>
+                    <span>向心力</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--中间导航部分-->
+    <div class="secTwo">
+        <section>
+            <input type="text">
+            <svg role="img" class="search">
+                <use xlink:href="#search"></use>
+            </svg>
+        </section>
+        <ul class="secOulTwo">
+            <li ng-class="{'oulShow':toggle1}" ng-click="toggle1 = !toggle1">
+                <span>资质管理</span>
+                <svg role="img" class="down">
+                    <use xlink:href="#down"></use>
+                </svg>
+            </li>
+            <li ng-class="{'oulShow':toggle2}" ng-click="toggle2= !toggle2">
+                <span>简介管理</span>
+                <svg role="img" class="down">
+                    <use xlink:href="#down"></use>
+                </svg>
+            </li>
+            <li ng-class="{'oulShow':toggle3}" ng-click="toggle3= !toggle3">
+                <span>企业文化</span>
+                <svg role="img" class="down">
+                    <use xlink:href="#down"></use>
+                </svg>
+                <ul class="navOul" ng-show="toggle4" ng-click="hideDaf($event)">
+                    <li ng-class="{'changes-clo':changMenu == 'enterpriseMenu'}" ng-click="masClass('enterpriseMenu')">企业文化管理</li>
+                </ul>
+            </li>
+            <li ng-class="{'oulShow':toggle4}" ng-click="toggle4 = !toggle4">
+                <span>组织结构</span>
+                <svg role="img" class="down">
+                    <use xlink:href="#down"></use>
+                </svg>
+                <ul class="navOul" ng-show="toggle4" ng-click="hideDaf($event)">
+                    <li ng-class="{'changes-clo':changMenu == 'orgMenu'}" ng-click="masClass('orgMenu')">组织结构</li>
+                    <li ng-class="{'changes-clo':changMenu == 'masMenu'}" ng-click="masClass('masMenu')">组织结构管理</li>
+                </ul>
+            </li>
+            <li ng-class="{'oulShow':toggle5}" ng-click="toggle5 = !toggle5 ">
+                <span>人员编制</span>
+                <svg role="img" class="down">
+                    <use xlink:href="#down"></use>
+                </svg>
+            </li>
+            <li ng-class="{'oulShow':toggle6}" ng-click="toggle6 = !toggle6">
+                <span>公告</span>
+                <svg role="img" class="down">
+                    <use xlink:href="#down"></use>
+                </svg>
+                <ul class="navOul" ng-show="toggle6" ng-click="hideDaf($event)">
+                    <li ng-class="{'changes-clo':changMenu == 'announMenu'}" ng-click="announClass('announMenu')">公告管理</li>
+                </ul>
+                <!-- <ul class="navOul" ng-show="toggle6" ng-click="hideDaf($event)">
+                    <li ng-class="{'changes-clo':changMenu == 'annMenu'}" ng-click="annClass('annMenu')">公告</li>
+                </ul> -->
+            </li>
+        </ul>
+    </div>
+</nav>

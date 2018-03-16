@@ -1,0 +1,37 @@
+<header>
+    <div class="headerDiv">
+        <!--主体头部部分-->
+        <div class="rightTop">
+            <div class="topLeft">
+                <h2>员工机会市场化平台</h2>
+            </div>
+            <div class="topRight">
+                <a href="javascript:void(0)">
+                    <svg role="img" class="news">
+                        <use xlink:href="#news"></use>
+                    </svg>
+                    <span>信息</span>
+                </a>
+                <a href="javascript:void(0)">
+                    <svg role="img" class="quit">
+                        <use xlink:href="#quit"></use>
+                    </svg>
+                    <span>退出</span>
+                </a>
+                <a href="javascript:void(0)" ng-click="login()" ><span>欢迎回来,艾佳</span></a>
+            </div>
+        </div>
+        <!--主体导航部分-->
+        <div class="rightNav">
+            <ul class="rightNavOul">
+                <li ng-class="{'active': navCla == 'mas1'}" ng-click="navClass('mas1')" ui-sref="_root.organize.views.classes.list[12]">
+                    <a href="javascript:void(0)">公告分类</a>
+                </li>
+                <li ng-class="{'active': navCla == 'mas2'}" ng-click="navClass('mas2')" ui-sref="_root.organize.views.notice.list[12]">
+                    <a href="javascript:void(0)">公告</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+

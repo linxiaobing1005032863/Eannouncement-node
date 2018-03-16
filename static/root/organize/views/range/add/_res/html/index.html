@@ -1,0 +1,111 @@
+<!--表格内容-->
+<div class="contentCenter">
+    <!--表格添加样式-->
+    <div class="add">
+        <div class="add-Top">
+            <p>信息设置</p>
+            <span><sup>*</sup>方向:</span>
+            <select class="sel" ng-model="add.id">
+                <option value="">请选择</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <input type="text" class="inputDom" ng-model="add.id">
+        </div>
+        <div class="add-kind">
+            <div class="add-cls"  ng-repeat="list in projectFlatTOs track by $index" ng-init="i= $index" >
+                <p class="del-add">
+                    <a href="javascript:void(0)" ng-click="delObj($index)">
+                        <img src="/images/minus.png" alt="">
+                        <span>删除</span>
+                    </a>
+                    <a href="javascript:void(0)" ng-click="addObj($index)">
+                        <img src="/images/add.png" alt="">
+                        <span>添加</span>
+                    </a>
+                </p>
+                <ul class="add-oneOul">
+                    <li>
+                        <ol class="add-twoOul">
+                            <li>
+                                <section class="isRel">
+                                    <span><sup>*</sup>科目:</span>
+                                    <select class="sel" ng-model="list.project">
+                                        <option value="">请选择</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                    <input type="text" class="inputDom" ng-model="list.project">
+                                </section>
+                                <div class="add-cls"  ng-repeat="list1 in list.classifyFlatTOs track by $index" ng-init="flag=$index" >
+                                    <p class="del-add">
+                                        <a href="javascript:void(0)" ng-click="delObj1(i,$index)">
+                                            <img src="/images/minus.png" alt="">
+                                            <span>删除</span>
+                                        </a>
+                                        <a href="javascript:void(0)" ng-click="addObj1(i,$index)">
+                                            <img src="/images/add.png" alt="">
+                                            <span>添加</span>
+                                        </a>
+                                    </p>
+                                    <ul class="add-threeOul">
+                                        <li>
+                                            <section>
+                                                <span><sup>*</sup>专业分类:</span>
+                                                <select class="sel" ng-model="list1.classify">
+                                                    <option value="">请选择</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                </select>
+                                                <input type="text" class="inputDom" ng-model="list1.classify">
+                                            </section>
+                                            <div class="add-cls" ng-repeat="list2 in list1.workRangeListTOs track by $index" >
+                                                <p class="del-add">
+                                                    <a href="javascript:void(0)" ng-click="delObj2(i,flag,$index)">
+                                                        <img src="/images/minus.png" alt="">
+                                                        <span>删除</span>
+                                                    </a>
+                                                    <a href="javascript:void(0)" ng-click="addObj2(i,flag,$index)">
+                                                        <img src="/images/add.png" alt="">
+                                                        <span>添加</span>
+                                                    </a>
+                                                </p>
+                                                <ul class="add-fourOul">
+                                                    <li>
+                                                        <section>
+                                                            <span><sup>*</sup>工作范围:</span>
+                                                            <input type="text" ng-model="list2.workRange">
+                                                        </section>
+                                                    </li>
+                                                    <li>
+                                                        <section>
+                                                            <span><sup>*</sup>工作界面:</span>
+                                                            <input type="text" ng-model="list2.node">
+                                                        </section>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+            <!--点击展开的样式-->
+            <div class="add-down">
+                <a href="javascript:void(0)">
+                    <svg role="img" class="left">
+                        <use xlink:href="#left"></use>
+                    </svg>
+                    <span>点击查看相关添加</span>
+                </a>
+            </div>
+        </div>
+        <div class="list-editSty">
+            <button ui-sref="root.organize.views.range.list[12]">取消</button>
+            <button ng-click="addFun(i,index)">确定</button>
+        </div>
+    </div>
+</div>
